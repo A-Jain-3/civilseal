@@ -131,6 +131,7 @@ BRIDGE_DATA.forEach(function (d) {
         <tr><td class="label">Year built</td><td>${yearText}</td></tr>
         <tr><td class="label">Risk score</td><td><span class="risk-badge" style="background:${riskColor(d.score)}">${d.score.toFixed(2)}</span></td></tr>
         <tr><td class="label">Nationwide rank</td><td>#${d.rank.toLocaleString()} of 434,812</td></tr>
+        <tr><td class="label">Robot deployed</td><td>No</td></tr>
       </table>
     </div>`;
   marker.bindPopup(html);
