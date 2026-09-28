@@ -37,8 +37,8 @@
     margin:0;
     background:#F7F5EF;
     color:#192435;
-    font-family:'IBM Plex Sans', Arial, sans-serif;
-    line-height:1.65;
+    font-family:'IBM Plex Sans',Arial,sans-serif;
+    line-height:1.6;
   "
 >
 
@@ -62,7 +62,7 @@
     style="
       max-width:1200px;
       margin:auto;
-      padding:12px 32px;
+      padding:10px 32px;
       display:flex;
       align-items:center;
       justify-content:space-between;
@@ -72,14 +72,12 @@
   >
 
 
-    <!-- LOGO -->
-
     <a
       href="#top"
       style="
         display:flex;
         align-items:center;
-        gap:12px;
+        gap:11px;
         text-decoration:none;
         color:#192435;
       "
@@ -87,18 +85,18 @@
 
       <img
         src="images/civilseal-logo.png"
-        alt="CivilSeal Logo"
+        alt="CivilSeal"
         style="
-          width:62px;
-          height:62px;
+          width:52px;
+          height:52px;
           object-fit:contain;
         "
       >
 
       <span
         style="
-          font-family:'Source Serif 4', Georgia, serif;
-          font-size:24px;
+          font-family:'Source Serif 4',Georgia,serif;
+          font-size:23px;
           font-weight:600;
         "
       >
@@ -108,28 +106,14 @@
     </a>
 
 
-    <!-- NAVIGATION -->
-
     <nav
       style="
         display:flex;
-        align-items:center;
-        justify-content:center;
         gap:28px;
         flex-wrap:wrap;
+        align-items:center;
       "
     >
-
-      <a
-        href="#system"
-        style="
-          text-decoration:none;
-          color:#5C6570;
-          font-size:14px;
-        "
-      >
-        Our System
-      </a>
 
       <a
         href="#assessment"
@@ -184,7 +168,7 @@
         background:#18304A;
         color:white;
         text-decoration:none;
-        padding:10px 20px;
+        padding:9px 18px;
         border-radius:4px;
         font-size:14px;
         font-weight:500;
@@ -200,13 +184,13 @@
 
 
 <!-- ===================================================== -->
-<!-- HERO -->
+<!-- HERO + SYSTEM OVERVIEW -->
 <!-- ===================================================== -->
 
 <section
   id="top"
   style="
-    padding:100px 32px 105px 32px;
+    padding:78px 32px 90px 32px;
   "
 >
 
@@ -214,26 +198,28 @@
     style="
       max-width:1200px;
       margin:auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:70px;
-      align-items:center;
     "
   >
 
 
-    <!-- HERO TEXT -->
+    <!-- TOP TEXT -->
 
-    <div>
+    <div
+      style="
+        max-width:850px;
+        margin:auto;
+        text-align:center;
+      "
+    >
 
       <div
         style="
           color:#AA7449;
           text-transform:uppercase;
-          letter-spacing:0.12em;
-          font-size:13px;
+          letter-spacing:0.13em;
+          font-size:12px;
           font-weight:600;
-          margin-bottom:20px;
+          margin-bottom:16px;
         "
       >
         Intelligent Infrastructure Recovery
@@ -242,201 +228,77 @@
 
       <h1
         style="
-          font-family:'Source Serif 4', Georgia, serif;
-          font-size:clamp(46px,6vw,72px);
-          font-weight:500;
-          line-height:1.03;
           margin:0;
-          max-width:720px;
+          font-family:'Source Serif 4',Georgia,serif;
+          font-size:clamp(42px,5vw,62px);
+          font-weight:500;
+          line-height:1.04;
         "
       >
-        Find hidden damage.
-        <br>
-        Repair concrete from within.
+        Detect. Restore. Verify.
       </h1>
 
 
       <p
         style="
-          margin-top:26px;
-          max-width:650px;
+          max-width:790px;
+          margin:23px auto 0 auto;
           color:#5C6570;
-          font-size:19px;
+          font-size:18px;
+          line-height:1.7;
         "
       >
-
         CivilSeal combines intelligent infrastructure assessment,
         robotic nondestructive evaluation, and biologically driven
         vascular repair to identify deterioration early and intervene
         precisely where it matters.
-
       </p>
-
-
-      <div
-        style="
-          margin-top:34px;
-          display:flex;
-          gap:20px;
-          flex-wrap:wrap;
-          align-items:center;
-        "
-      >
-
-        <a
-          href="#system"
-          style="
-            background:#18304A;
-            color:white;
-            text-decoration:none;
-            padding:14px 25px;
-            border-radius:4px;
-            font-size:15px;
-            font-weight:500;
-          "
-        >
-          Explore the System
-        </a>
-
-
-        <a
-          href="#research"
-          style="
-            color:#5C6570;
-            text-decoration:none;
-            border-bottom:1px solid #C9AB7D;
-            padding-bottom:3px;
-            font-size:15px;
-          "
-        >
-          See the Research
-        </a>
-
-      </div>
 
     </div>
 
 
 
-    <!-- HERO LOGO -->
+    <!-- OVERALL SYSTEM IMAGE -->
 
     <div
       style="
-        display:flex;
-        align-items:center;
-        justify-content:center;
+        margin-top:48px;
+        width:100%;
+        overflow:hidden;
+        border-radius:10px;
+        border:1px solid #DAD4C8;
+        box-shadow:0 18px 55px rgba(24,48,74,0.10);
+        background:white;
       "
     >
 
       <img
-        src="images/civilseal-logo.png"
-        alt="CivilSeal"
+        src="images/overview.png"
+        alt="CivilSeal detect restore verify infrastructure system"
         style="
-          width:min(430px,90%);
+          display:block;
+          width:100%;
           height:auto;
-          object-fit:contain;
-          filter:drop-shadow(0 18px 35px rgba(24,48,74,0.10));
         "
       >
 
     </div>
 
-  </div>
-
-</section>
 
 
-
-<!-- ===================================================== -->
-<!-- THREE MAIN CATEGORIES -->
-<!-- ===================================================== -->
-
-<section
-  id="system"
-  style="
-    border-top:1px solid #DAD4C8;
-    padding:90px 32px 110px 32px;
-    background:#FBFAF6;
-  "
->
-
-  <div
-    style="
-      max-width:1200px;
-      margin:auto;
-    "
-  >
-
-
-    <!-- SECTION TITLE -->
+    <!-- CLICKABLE SYSTEM OPTIONS -->
 
     <div
       style="
-        max-width:760px;
-        margin-bottom:55px;
-      "
-    >
-
-      <div
-        style="
-          color:#AA7449;
-          text-transform:uppercase;
-          letter-spacing:0.12em;
-          font-size:12px;
-          font-weight:600;
-          margin-bottom:12px;
-        "
-      >
-        Our System
-      </div>
-
-
-      <h2
-        style="
-          margin:0;
-          font-family:'Source Serif 4', Georgia, serif;
-          font-size:clamp(36px,4vw,50px);
-          font-weight:500;
-          line-height:1.1;
-        "
-      >
-        Detect. Restore. Verify.
-      </h2>
-
-
-      <p
-        style="
-          color:#5C6570;
-          font-size:17px;
-          margin-top:18px;
-        "
-      >
-
-        One closed-loop platform connects infrastructure
-        prioritization, targeted inspection, biological repair,
-        and post-repair validation.
-
-      </p>
-
-    </div>
-
-
-
-    <!-- CARD GRID -->
-
-    <div
-      style="
+        margin-top:32px;
         display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-        gap:25px;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:14px;
       "
     >
 
 
-
-      <!-- ================================================= -->
-      <!-- CARD 1 -->
-      <!-- ================================================= -->
+      <!-- ASSESSMENT -->
 
       <a
         href="#assessment"
@@ -446,119 +308,47 @@
           background:white;
           border:1px solid #DAD4C8;
           border-radius:6px;
-          overflow:hidden;
-          box-shadow:0 12px 35px rgba(24,48,74,0.06);
+          padding:23px;
+          display:block;
         "
       >
 
-
         <div
           style="
-            height:290px;
-            position:relative;
-            overflow:hidden;
+            color:#AA7449;
+            font-size:12px;
+            font-weight:600;
+            margin-bottom:7px;
           "
         >
-
-          <img
-            src="images/assessment.png"
-            alt="Robotic bridge inspection and structural assessment"
-            style="
-              width:100%;
-              height:100%;
-              object-fit:cover;
-              display:block;
-            "
-          >
-
-
-          <div
-            style="
-              position:absolute;
-              top:18px;
-              left:18px;
-              width:46px;
-              height:46px;
-              background:rgba(247,245,239,0.94);
-              color:#AA7449;
-              display:flex;
-              align-items:center;
-              justify-content:center;
-              font-family:'Source Serif 4', Georgia, serif;
-              font-size:18px;
-            "
-          >
-            01
-          </div>
-
+          01 / DETECT
         </div>
 
+        <div
+          style="
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:23px;
+            font-weight:500;
+            margin-bottom:6px;
+          "
+        >
+          Intelligent Assessment
+        </div>
 
         <div
           style="
-            padding:30px;
+            color:#5C6570;
+            font-size:13px;
           "
         >
-
-          <div
-            style="
-              color:#AA7449;
-              text-transform:uppercase;
-              letter-spacing:0.08em;
-              font-size:11px;
-              font-weight:600;
-              margin-bottom:10px;
-            "
-          >
-            Intelligent Assessment
-          </div>
-
-
-          <h3
-            style="
-              margin:0 0 12px 0;
-              font-family:'Source Serif 4', Georgia, serif;
-              font-size:27px;
-              font-weight:500;
-            "
-          >
-            Know where to look.
-          </h3>
-
-
-          <p
-            style="
-              margin:0 0 24px 0;
-              color:#5C6570;
-              font-size:15px;
-            "
-          >
-
-            Prioritize infrastructure, identify critical regions,
-            and deploy targeted robotic NDE to reveal hidden deterioration.
-
-          </p>
-
-
-          <span
-            style="
-              color:#18304A;
-              font-size:14px;
-              font-weight:600;
-            "
-          >
-            Explore Assessment →
-          </span>
-
+          Prioritize → Locate → Inspect
         </div>
 
       </a>
 
 
 
-      <!-- ================================================= -->
-      <!-- CARD 2 -->
-      <!-- ================================================= -->
+      <!-- RESTORATION -->
 
       <a
         href="#restoration"
@@ -568,119 +358,47 @@
           background:white;
           border:1px solid #DAD4C8;
           border-radius:6px;
-          overflow:hidden;
-          box-shadow:0 12px 35px rgba(24,48,74,0.06);
+          padding:23px;
+          display:block;
         "
       >
 
-
         <div
           style="
-            height:290px;
-            position:relative;
-            overflow:hidden;
+            color:#AA7449;
+            font-size:12px;
+            font-weight:600;
+            margin-bottom:7px;
           "
         >
-
-          <img
-            src="images/restoration.png"
-            alt="Biological vascular concrete repair"
-            style="
-              width:100%;
-              height:100%;
-              object-fit:cover;
-              display:block;
-            "
-          >
-
-
-          <div
-            style="
-              position:absolute;
-              top:18px;
-              left:18px;
-              width:46px;
-              height:46px;
-              background:rgba(247,245,239,0.94);
-              color:#AA7449;
-              display:flex;
-              align-items:center;
-              justify-content:center;
-              font-family:'Source Serif 4', Georgia, serif;
-              font-size:18px;
-            "
-          >
-            02
-          </div>
-
+          02 / RESTORE
         </div>
 
+        <div
+          style="
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:23px;
+            font-weight:500;
+            margin-bottom:6px;
+          "
+        >
+          Biological Restoration
+        </div>
 
         <div
           style="
-            padding:30px;
+            color:#5C6570;
+            font-size:13px;
           "
         >
-
-          <div
-            style="
-              color:#AA7449;
-              text-transform:uppercase;
-              letter-spacing:0.08em;
-              font-size:11px;
-              font-weight:600;
-              margin-bottom:10px;
-            "
-          >
-            Biological Restoration
-          </div>
-
-
-          <h3
-            style="
-              margin:0 0 12px 0;
-              font-family:'Source Serif 4', Georgia, serif;
-              font-size:27px;
-              font-weight:500;
-            "
-          >
-            Repair from within.
-          </h3>
-
-
-          <p
-            style="
-              margin:0 0 24px 0;
-              color:#5C6570;
-              font-size:15px;
-            "
-          >
-
-            Targeted vascular access delivers hydrogel-supported
-            biological healing agents directly into subsurface cracks.
-
-          </p>
-
-
-          <span
-            style="
-              color:#18304A;
-              font-size:14px;
-              font-weight:600;
-            "
-          >
-            Explore Restoration →
-          </span>
-
+          Access → Deliver → Mineralize
         </div>
 
       </a>
 
 
 
-      <!-- ================================================= -->
-      <!-- CARD 3 -->
-      <!-- ================================================= -->
+      <!-- VALIDATION -->
 
       <a
         href="#validation"
@@ -690,114 +408,94 @@
           background:white;
           border:1px solid #DAD4C8;
           border-radius:6px;
-          overflow:hidden;
-          box-shadow:0 12px 35px rgba(24,48,74,0.06);
+          padding:23px;
+          display:block;
         "
       >
 
-
         <div
           style="
-            height:290px;
-            position:relative;
-            overflow:hidden;
+            color:#AA7449;
+            font-size:12px;
+            font-weight:600;
+            margin-bottom:7px;
           "
         >
-
-          <img
-            src="images/validation.png"
-            alt="Post repair bridge validation"
-            style="
-              width:100%;
-              height:100%;
-              object-fit:cover;
-              display:block;
-            "
-          >
-
-
-          <div
-            style="
-              position:absolute;
-              top:18px;
-              left:18px;
-              width:46px;
-              height:46px;
-              background:rgba(247,245,239,0.94);
-              color:#AA7449;
-              display:flex;
-              align-items:center;
-              justify-content:center;
-              font-family:'Source Serif 4', Georgia, serif;
-              font-size:18px;
-            "
-          >
-            03
-          </div>
-
+          03 / VERIFY
         </div>
 
+        <div
+          style="
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:23px;
+            font-weight:500;
+            margin-bottom:6px;
+          "
+        >
+          Validation & Feedback
+        </div>
 
         <div
           style="
-            padding:30px;
+            color:#5C6570;
+            font-size:13px;
           "
         >
-
-          <div
-            style="
-              color:#AA7449;
-              text-transform:uppercase;
-              letter-spacing:0.08em;
-              font-size:11px;
-              font-weight:600;
-              margin-bottom:10px;
-            "
-          >
-            Validation & Feedback
-          </div>
-
-
-          <h3
-            style="
-              margin:0 0 12px 0;
-              font-family:'Source Serif 4', Georgia, serif;
-              font-size:27px;
-              font-weight:500;
-            "
-          >
-            Verify the recovery.
-          </h3>
-
-
-          <p
-            style="
-              margin:0 0 24px 0;
-              color:#5C6570;
-              font-size:15px;
-            "
-          >
-
-            Follow-up NDE confirms repair effectiveness and updates
-            the infrastructure condition model.
-
-          </p>
-
-
-          <span
-            style="
-              color:#18304A;
-              font-size:14px;
-              font-weight:600;
-            "
-          >
-            Explore Validation →
-          </span>
-
+          Reinspect → Compare → Update
         </div>
 
       </a>
 
+
+
+      <!-- RESEARCH -->
+
+      <a
+        href="#research"
+        style="
+          text-decoration:none;
+          color:#192435;
+          background:#18304A;
+          border:1px solid #18304A;
+          border-radius:6px;
+          padding:23px;
+          display:block;
+        "
+      >
+
+        <div
+          style="
+            color:#C9AB7D;
+            font-size:12px;
+            font-weight:600;
+            margin-bottom:7px;
+          "
+        >
+          RESEARCH
+        </div>
+
+        <div
+          style="
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:23px;
+            font-weight:500;
+            margin-bottom:6px;
+            color:white;
+          "
+        >
+          Published Foundation
+        </div>
+
+        <div
+          style="
+            color:rgba(255,255,255,0.68);
+            font-size:13px;
+          "
+        >
+          Data → Results → Publications
+        </div>
+
+      </a>
 
     </div>
 
@@ -808,14 +506,15 @@
 
 
 <!-- ===================================================== -->
-<!-- ASSESSMENT -->
+<!-- 01 INTELLIGENT ASSESSMENT -->
 <!-- ===================================================== -->
 
 <section
   id="assessment"
   style="
+    padding:105px 32px;
+    background:#FBFAF6;
     border-top:1px solid #DAD4C8;
-    padding:110px 32px;
   "
 >
 
@@ -824,25 +523,23 @@
       max-width:1200px;
       margin:auto;
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:70px;
+      grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+      gap:65px;
       align-items:center;
     "
   >
 
 
-    <!-- IMAGE -->
-
     <div>
 
       <img
         src="images/assessment.png"
-        alt="CivilSeal intelligent bridge assessment"
+        alt="Robotic bridge inspection and NDE"
         style="
-          display:block;
           width:100%;
+          display:block;
           border-radius:8px;
-          box-shadow:0 20px 60px rgba(24,48,74,0.10);
+          box-shadow:0 18px 50px rgba(24,48,74,0.10);
         "
       >
 
@@ -850,33 +547,31 @@
 
 
 
-    <!-- TEXT -->
-
     <div>
 
       <div
         style="
           color:#AA7449;
-          font-family:'Source Serif 4', Georgia, serif;
-          font-size:20px;
-          margin-bottom:12px;
+          font-size:14px;
+          font-weight:600;
+          letter-spacing:0.05em;
+          margin-bottom:10px;
         "
       >
-        01 / Intelligent Assessment
+        01 / DETECT
       </div>
 
 
       <h2
         style="
-          margin:0 0 22px 0;
-          font-family:'Source Serif 4', Georgia, serif;
-          font-size:clamp(36px,4vw,50px);
+          margin:0 0 18px 0;
+          font-family:'Source Serif 4',Georgia,serif;
+          font-size:clamp(34px,4vw,48px);
           font-weight:500;
           line-height:1.1;
         "
       >
-        From infrastructure networks
-        to individual hidden defects.
+        Know where to look.
       </h2>
 
 
@@ -884,158 +579,116 @@
         style="
           color:#5C6570;
           font-size:17px;
-          margin-bottom:32px;
+          margin-bottom:30px;
         "
       >
-
-        CivilSeal combines existing infrastructure data,
-        structural engineering analysis, and targeted
-        nondestructive evaluation to determine which
-        assets require attention and exactly where to inspect.
-
+        CivilSeal narrows a large infrastructure network
+        down to the specific structural regions where
+        detailed inspection and intervention matter most.
       </p>
 
 
 
-      <!-- FEATURE 1 -->
-
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #DAD4C8;
         "
       >
 
-        <h3
-          style="
-            font-size:16px;
-            margin:0 0 6px 0;
-          "
-        >
+        <strong>
           1A. Network Risk Prioritization
-        </h3>
+        </strong>
 
         <p
           style="
-            margin:0;
+            margin:6px 0 0 0;
             color:#5C6570;
             font-size:14px;
           "
         >
-
-          Bridge condition, material, age, structural type,
-          traffic, environmental exposure, repair history,
-          and hazard information are combined to identify
-          assets requiring attention first.
-
+          Condition, material, structural type, age,
+          loading, repair history, environment, and hazards
+          are used to prioritize infrastructure assets.
         </p>
 
       </div>
 
 
 
-      <!-- FEATURE 2 -->
-
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #DAD4C8;
         "
       >
 
-        <h3
-          style="
-            font-size:16px;
-            margin:0 0 6px 0;
-          "
-        >
+        <strong>
           1B. Critical Zone Prediction
-        </h3>
+        </strong>
 
         <p
           style="
-            margin:0;
+            margin:6px 0 0 0;
             color:#5C6570;
             font-size:14px;
           "
         >
-
-          Structural models, drawings, load paths,
-          deterioration history, and engineering analysis
-          identify the most critical regions of the structure.
-
+          Structural models and load paths identify regions
+          where deterioration may have the greatest impact.
         </p>
 
       </div>
 
 
 
-      <!-- FEATURE 3 -->
-
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #DAD4C8;
         "
       >
 
-        <h3
-          style="
-            font-size:16px;
-            margin:0 0 6px 0;
-          "
-        >
+        <strong>
           1C. Targeted Robotic NDE
-        </h3>
+        </strong>
 
         <p
           style="
-            margin:0;
+            margin:6px 0 0 0;
             color:#5C6570;
             font-size:14px;
           "
         >
-
-          Robotic platforms deploy complementary methods such as
-          ultrasound, impact echo, ground penetrating radar,
-          thermal imaging, and computer vision in priority regions.
-
+          Robotic platforms investigate priority regions
+          using complementary nondestructive evaluation methods.
         </p>
 
       </div>
 
 
 
-      <!-- FEATURE 4 -->
-
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #DAD4C8;
         "
       >
 
-        <h3
-          style="
-            font-size:16px;
-            margin:0 0 6px 0;
-          "
-        >
-          1D. Damage & Repair Prioritization
-        </h3>
+        <strong>
+          1D. Damage Prioritization
+        </strong>
 
         <p
           style="
-            margin:0;
+            margin:6px 0 0 0;
             color:#5C6570;
             font-size:14px;
           "
         >
-
           Detected defects are evaluated by severity,
           structural significance, progression risk,
-          accessibility, and suitability for targeted repair.
-
+          and repair suitability.
         </p>
 
       </div>
@@ -1049,12 +702,13 @@
 
 
 <!-- ===================================================== -->
-<!-- ASSESSMENT WORKFLOW -->
+<!-- AI PRIORITIZATION -->
 <!-- ===================================================== -->
 
 <section
   style="
-    padding:40px 32px 110px 32px;
+    padding:80px 32px;
+    border-top:1px solid #DAD4C8;
   "
 >
 
@@ -1062,155 +716,251 @@
     style="
       max-width:1200px;
       margin:auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-      border:1px solid #DAD4C8;
-      background:white;
     "
   >
 
-
     <div
       style="
-        padding:30px;
-        border-right:1px solid #DAD4C8;
+        max-width:700px;
+        margin-bottom:36px;
       "
     >
 
       <div
         style="
           color:#AA7449;
+          text-transform:uppercase;
+          letter-spacing:0.1em;
           font-size:12px;
           font-weight:600;
           margin-bottom:10px;
         "
       >
-        1A
+        Risk Intelligence
       </div>
 
-      <h3 style="margin:0 0 8px 0;">
-        Prioritize
-      </h3>
+      <h2
+        style="
+          margin:0;
+          font-family:'Source Serif 4',Georgia,serif;
+          font-size:36px;
+          font-weight:500;
+        "
+      >
+        Prioritize before you inspect.
+      </h2>
 
       <p
         style="
-          margin:0;
           color:#5C6570;
-          font-size:14px;
+          margin-top:14px;
         "
       >
-        Which infrastructure assets need attention first?
+        The decision model combines multiple indicators
+        rather than relying on a single bridge rating.
       </p>
 
     </div>
-
 
 
     <div
       style="
-        padding:30px;
-        border-right:1px solid #DAD4C8;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+        gap:12px;
       "
     >
 
-      <div
-        style="
-          color:#AA7449;
-          font-size:12px;
-          font-weight:600;
-          margin-bottom:10px;
-        "
-      >
-        1B
-      </div>
-
-      <h3 style="margin:0 0 8px 0;">
-        Locate
-      </h3>
-
-      <p
-        style="
-          margin:0;
-          color:#5C6570;
-          font-size:14px;
-        "
-      >
-        Where are the structurally critical regions?
-      </p>
-
-    </div>
-
-
-
-    <div
-      style="
-        padding:30px;
-        border-right:1px solid #DAD4C8;
-      "
-    >
 
       <div
         style="
-          color:#AA7449;
-          font-size:12px;
-          font-weight:600;
-          margin-bottom:10px;
+          background:white;
+          border:1px solid #DAD4C8;
+          padding:23px;
         "
       >
-        1C
+        <div style="font-size:29px;font-family:'Source Serif 4',serif;color:#18304A;">
+          25%
+        </div>
+
+        <strong style="font-size:14px;">
+          Condition
+        </strong>
+
+        <div style="color:#5C6570;font-size:12px;margin-top:5px;">
+          Inspection & deterioration history
+        </div>
       </div>
 
-      <h3 style="margin:0 0 8px 0;">
-        Inspect
-      </h3>
-
-      <p
-        style="
-          margin:0;
-          color:#5C6570;
-          font-size:14px;
-        "
-      >
-        Where is hidden deterioration actually present?
-      </p>
-
-    </div>
-
-
-
-    <div
-      style="
-        padding:30px;
-      "
-    >
 
       <div
         style="
-          color:#AA7449;
-          font-size:12px;
-          font-weight:600;
-          margin-bottom:10px;
+          background:white;
+          border:1px solid #DAD4C8;
+          padding:23px;
         "
       >
-        1D
+        <div style="font-size:29px;font-family:'Source Serif 4',serif;color:#18304A;">
+          15%
+        </div>
+
+        <strong style="font-size:14px;">
+          Materials
+        </strong>
+
+        <div style="color:#5C6570;font-size:12px;margin-top:5px;">
+          Concrete & deterioration mechanism
+        </div>
       </div>
 
-      <h3 style="margin:0 0 8px 0;">
-        Decide
-      </h3>
 
-      <p
+      <div
         style="
-          margin:0;
-          color:#5C6570;
-          font-size:14px;
+          background:white;
+          border:1px solid #DAD4C8;
+          padding:23px;
         "
       >
-        Which defects require biological repair or another intervention?
-      </p>
+        <div style="font-size:29px;font-family:'Source Serif 4',serif;color:#18304A;">
+          15%
+        </div>
+
+        <strong style="font-size:14px;">
+          Structure
+        </strong>
+
+        <div style="color:#5C6570;font-size:12px;margin-top:5px;">
+          Type, member & criticality
+        </div>
+      </div>
+
+
+      <div
+        style="
+          background:white;
+          border:1px solid #DAD4C8;
+          padding:23px;
+        "
+      >
+        <div style="font-size:29px;font-family:'Source Serif 4',serif;color:#18304A;">
+          10%
+        </div>
+
+        <strong style="font-size:14px;">
+          Loading
+        </strong>
+
+        <div style="color:#5C6570;font-size:12px;margin-top:5px;">
+          Traffic & structural demand
+        </div>
+      </div>
+
+
+      <div
+        style="
+          background:white;
+          border:1px solid #DAD4C8;
+          padding:23px;
+        "
+      >
+        <div style="font-size:29px;font-family:'Source Serif 4',serif;color:#18304A;">
+          10%
+        </div>
+
+        <strong style="font-size:14px;">
+          Age & Repairs
+        </strong>
+
+        <div style="color:#5C6570;font-size:12px;margin-top:5px;">
+          Service age & intervention history
+        </div>
+      </div>
+
+
+      <div
+        style="
+          background:white;
+          border:1px solid #DAD4C8;
+          padding:23px;
+        "
+      >
+        <div style="font-size:29px;font-family:'Source Serif 4',serif;color:#18304A;">
+          10%
+        </div>
+
+        <strong style="font-size:14px;">
+          Environment
+        </strong>
+
+        <div style="color:#5C6570;font-size:12px;margin-top:5px;">
+          Moisture, chlorides & climate
+        </div>
+      </div>
+
+
+      <div
+        style="
+          background:white;
+          border:1px solid #DAD4C8;
+          padding:23px;
+        "
+      >
+        <div style="font-size:29px;font-family:'Source Serif 4',serif;color:#18304A;">
+          5%
+        </div>
+
+        <strong style="font-size:14px;">
+          Hazards
+        </strong>
+
+        <div style="color:#5C6570;font-size:12px;margin-top:5px;">
+          Seismic, flood & scour
+        </div>
+      </div>
+
+
+      <div
+        style="
+          background:white;
+          border:1px solid #DAD4C8;
+          padding:23px;
+        "
+      >
+        <div style="font-size:29px;font-family:'Source Serif 4',serif;color:#18304A;">
+          5%
+        </div>
+
+        <strong style="font-size:14px;">
+          Consequence
+        </strong>
+
+        <div style="color:#5C6570;font-size:12px;margin-top:5px;">
+          Disruption & network importance
+        </div>
+      </div>
+
+
+      <div
+        style="
+          background:white;
+          border:1px solid #DAD4C8;
+          padding:23px;
+        "
+      >
+        <div style="font-size:29px;font-family:'Source Serif 4',serif;color:#18304A;">
+          5%
+        </div>
+
+        <strong style="font-size:14px;">
+          Accessibility
+        </strong>
+
+        <div style="color:#5C6570;font-size:12px;margin-top:5px;">
+          Inspection & repair access
+        </div>
+      </div>
 
     </div>
-
 
   </div>
 
@@ -1219,7 +969,7 @@
 
 
 <!-- ===================================================== -->
-<!-- BIOLOGICAL RESTORATION -->
+<!-- 02 BIOLOGICAL RESTORATION -->
 <!-- ===================================================== -->
 
 <section
@@ -1227,7 +977,7 @@
   style="
     background:#EEEAE0;
     border-top:1px solid #DAD4C8;
-    padding:110px 32px;
+    padding:105px 32px;
   "
 >
 
@@ -1236,40 +986,38 @@
       max-width:1200px;
       margin:auto;
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:70px;
+      grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+      gap:65px;
       align-items:center;
     "
   >
 
-
-    <!-- TEXT -->
 
     <div>
 
       <div
         style="
           color:#AA7449;
-          font-family:'Source Serif 4', Georgia, serif;
-          font-size:20px;
-          margin-bottom:12px;
+          font-size:14px;
+          font-weight:600;
+          letter-spacing:0.05em;
+          margin-bottom:10px;
         "
       >
-        02 / Biological Restoration
+        02 / RESTORE
       </div>
 
 
       <h2
         style="
-          margin:0 0 22px 0;
-          font-family:'Source Serif 4', Georgia, serif;
-          font-size:clamp(36px,4vw,50px);
+          margin:0 0 18px 0;
+          font-family:'Source Serif 4',Georgia,serif;
+          font-size:clamp(34px,4vw,48px);
           font-weight:500;
           line-height:1.1;
         "
       >
-        Deliver repair directly
-        into hidden cracks.
+        Repair from within.
       </h2>
 
 
@@ -1277,168 +1025,101 @@
         style="
           color:#5C6570;
           font-size:17px;
-          margin-bottom:32px;
+          margin-bottom:30px;
         "
       >
-
-        Once damage has been identified, targeted vascular
-        access creates a pathway between the concrete surface
-        and internal cracks, allowing biological healing agents
-        to reach the damaged region directly.
-
+        Once damage is identified, targeted vascular access
+        creates a pathway to the internal crack network
+        and delivers biological healing agents precisely
+        where they are needed.
       </p>
 
 
 
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #D1CABD;
         "
       >
-
-        <h3
-          style="
-            margin:0 0 6px 0;
-            font-size:16px;
-          "
-        >
+        <strong>
           Targeted Vascular Access
-        </h3>
+        </strong>
 
-        <p
-          style="
-            margin:0;
-            color:#5C6570;
-            font-size:14px;
-          "
-        >
-
-          Engineered channels create controlled access
-          from the concrete surface into identified
-          subsurface crack networks.
-
+        <p style="margin:6px 0 0;color:#5C6570;font-size:14px;">
+          Engineered micro-channels connect the concrete
+          surface to subsurface damage.
         </p>
-
       </div>
 
 
 
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #D1CABD;
         "
       >
+        <strong>
+          Hydrogel Delivery
+        </strong>
 
-        <h3
-          style="
-            margin:0 0 6px 0;
-            font-size:16px;
-          "
-        >
-          Hydrogel-Based Delivery
-        </h3>
-
-        <p
-          style="
-            margin:0;
-            color:#5C6570;
-            font-size:14px;
-          "
-        >
-
-          Agar hydrogel transports bacteria and nutrients,
-          retains moisture, and helps distribute the healing
-          medium throughout the crack network.
-
+        <p style="margin:6px 0 0;color:#5C6570;font-size:14px;">
+          Agar hydrogel carries bacteria and nutrients
+          while retaining moisture within the crack environment.
         </p>
-
       </div>
 
 
 
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #D1CABD;
         "
       >
+        <strong>
+          MICCP
+        </strong>
 
-        <h3
-          style="
-            margin:0 0 6px 0;
-            font-size:16px;
-          "
-        >
-          Biological Mineralization
-        </h3>
-
-        <p
-          style="
-            margin:0;
-            color:#5C6570;
-            font-size:14px;
-          "
-        >
-
+        <p style="margin:6px 0 0;color:#5C6570;font-size:14px;">
           Ureolytic bacteria promote calcium carbonate
-          precipitation inside the damaged region.
-
+          formation inside the crack network.
         </p>
-
       </div>
 
 
 
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #D1CABD;
         "
       >
+        <strong>
+          Targeted Crack Sealing
+        </strong>
 
-        <h3
-          style="
-            margin:0 0 6px 0;
-            font-size:16px;
-          "
-        >
-          Internal Crack Sealing
-        </h3>
-
-        <p
-          style="
-            margin:0;
-            color:#5C6570;
-            font-size:14px;
-          "
-        >
-
-          Mineral deposition occurs throughout the
-          crack network, creating targeted repair
-          from within the concrete.
-
+        <p style="margin:6px 0 0;color:#5C6570;font-size:14px;">
+          Mineral precipitation develops within the damaged region,
+          creating a biologically driven repair pathway.
         </p>
-
       </div>
 
     </div>
 
 
-
-    <!-- IMAGE -->
 
     <div>
 
       <img
         src="images/restoration.png"
-        alt="Biological vascular concrete repair"
+        alt="Biological vascular repair of concrete"
         style="
-          display:block;
           width:100%;
+          display:block;
           border-radius:8px;
-          box-shadow:0 20px 60px rgba(24,48,74,0.12);
+          box-shadow:0 18px 50px rgba(24,48,74,0.12);
         "
       >
 
@@ -1451,14 +1132,14 @@
 
 
 <!-- ===================================================== -->
-<!-- VALIDATION -->
+<!-- 03 VALIDATION -->
 <!-- ===================================================== -->
 
 <section
   id="validation"
   style="
+    padding:105px 32px;
     border-top:1px solid #DAD4C8;
-    padding:110px 32px;
   "
 >
 
@@ -1467,25 +1148,23 @@
       max-width:1200px;
       margin:auto;
       display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:70px;
+      grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+      gap:65px;
       align-items:center;
     "
   >
 
 
-    <!-- IMAGE -->
-
     <div>
 
       <img
         src="images/validation.png"
-        alt="Validation of repaired bridge"
+        alt="Post repair validation of concrete bridge"
         style="
-          display:block;
           width:100%;
+          display:block;
           border-radius:8px;
-          box-shadow:0 20px 60px rgba(24,48,74,0.10);
+          box-shadow:0 18px 50px rgba(24,48,74,0.10);
         "
       >
 
@@ -1493,33 +1172,31 @@
 
 
 
-    <!-- TEXT -->
-
     <div>
 
       <div
         style="
           color:#AA7449;
-          font-family:'Source Serif 4', Georgia, serif;
-          font-size:20px;
-          margin-bottom:12px;
+          font-size:14px;
+          font-weight:600;
+          letter-spacing:0.05em;
+          margin-bottom:10px;
         "
       >
-        03 / Validation & Feedback
+        03 / VERIFY
       </div>
 
 
       <h2
         style="
-          margin:0 0 22px 0;
-          font-family:'Source Serif 4', Georgia, serif;
-          font-size:clamp(36px,4vw,50px);
+          margin:0 0 18px 0;
+          font-family:'Source Serif 4',Georgia,serif;
+          font-size:clamp(34px,4vw,48px);
           font-weight:500;
           line-height:1.1;
         "
       >
-        Repair is not complete
-        until it is verified.
+        Prove the repair worked.
       </h2>
 
 
@@ -1527,354 +1204,80 @@
         style="
           color:#5C6570;
           font-size:17px;
-          margin-bottom:32px;
+          margin-bottom:30px;
         "
       >
-
-        CivilSeal closes the loop by reinspecting
-        repaired regions and comparing their post-repair
-        condition with the original damage state.
-
+        CivilSeal closes the loop by returning to repaired
+        regions with nondestructive evaluation and comparing
+        their condition with the original damage state.
       </p>
 
 
 
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #DAD4C8;
         "
       >
+        <strong>
+          Reinspect
+        </strong>
 
-        <h3
-          style="
-            margin:0 0 6px 0;
-            font-size:16px;
-          "
-        >
-          Follow-Up NDE
-        </h3>
-
-        <p
-          style="
-            margin:0;
-            color:#5C6570;
-            font-size:14px;
-          "
-        >
-          The repaired region is rescanned using
-          complementary nondestructive evaluation methods.
+        <p style="margin:6px 0 0;color:#5C6570;font-size:14px;">
+          Scan the repaired region using complementary NDE.
         </p>
-
       </div>
-
 
 
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #DAD4C8;
         "
       >
+        <strong>
+          Compare
+        </strong>
 
-        <h3
-          style="
-            margin:0 0 6px 0;
-            font-size:16px;
-          "
-        >
-          Before / After Comparison
-        </h3>
-
-        <p
-          style="
-            margin:0;
-            color:#5C6570;
-            font-size:14px;
-          "
-        >
-          Inspection data are compared to evaluate
-          changes in the damaged region following repair.
+        <p style="margin:6px 0 0;color:#5C6570;font-size:14px;">
+          Compare pre-repair and post-repair condition maps.
         </p>
-
       </div>
-
 
 
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #DAD4C8;
         "
       >
+        <strong>
+          Update
+        </strong>
 
-        <h3
-          style="
-            margin:0 0 6px 0;
-            font-size:16px;
-          "
-        >
-          Condition Model Update
-        </h3>
-
-        <p
-          style="
-            margin:0;
-            color:#5C6570;
-            font-size:14px;
-          "
-        >
-          New inspection and repair-performance information
-          is returned to the infrastructure condition model.
+        <p style="margin:6px 0 0;color:#5C6570;font-size:14px;">
+          Feed verified condition data back into the
+          infrastructure model.
         </p>
-
       </div>
-
 
 
       <div
         style="
-          padding:20px 0;
+          padding:18px 0;
           border-top:1px solid #DAD4C8;
         "
       >
+        <strong>
+          Learn
+        </strong>
 
-        <h3
-          style="
-            margin:0 0 6px 0;
-            font-size:16px;
-          "
-        >
-          Continuous Feedback
-        </h3>
-
-        <p
-          style="
-            margin:0;
-            color:#5C6570;
-            font-size:14px;
-          "
-        >
-          Each intervention creates new information
-          for future inspection and maintenance decisions.
+        <p style="margin:6px 0 0;color:#5C6570;font-size:14px;">
+          Use repair outcomes to improve future
+          prioritization and intervention decisions.
         </p>
-
       </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- ===================================================== -->
-<!-- CLOSED LOOP -->
-<!-- ===================================================== -->
-
-<section
-  style="
-    background:#18304A;
-    padding:100px 32px;
-  "
->
-
-  <div
-    style="
-      max-width:1200px;
-      margin:auto;
-    "
-  >
-
-
-    <div
-      style="
-        max-width:700px;
-        margin-bottom:55px;
-      "
-    >
-
-      <div
-        style="
-          color:#C9AB7D;
-          text-transform:uppercase;
-          letter-spacing:0.12em;
-          font-size:12px;
-          font-weight:600;
-          margin-bottom:12px;
-        "
-      >
-        Closed-Loop Infrastructure Recovery
-      </div>
-
-
-      <h2
-        style="
-          color:white;
-          margin:0;
-          font-family:'Source Serif 4', Georgia, serif;
-          font-size:clamp(36px,4vw,50px);
-          font-weight:500;
-        "
-      >
-        Find it. Repair it. Prove it.
-      </h2>
-
-
-      <p
-        style="
-          color:rgba(255,255,255,0.7);
-          font-size:17px;
-          margin-top:18px;
-        "
-      >
-
-        Inspection and repair become one connected
-        infrastructure maintenance process.
-
-      </p>
-
-    </div>
-
-
-
-    <div
-      style="
-        display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-        gap:24px;
-      "
-    >
-
-
-      <div
-        style="
-          border:1px solid rgba(255,255,255,0.20);
-          padding:35px;
-        "
-      >
-
-        <div
-          style="
-            color:#C9AB7D;
-            font-size:13px;
-            margin-bottom:15px;
-          "
-        >
-          01
-        </div>
-
-        <h3
-          style="
-            margin:0 0 12px 0;
-            color:white;
-            font-family:'Source Serif 4', Georgia, serif;
-            font-size:27px;
-          "
-        >
-          Detect
-        </h3>
-
-        <p
-          style="
-            margin:0;
-            color:rgba(255,255,255,0.68);
-            font-size:14px;
-          "
-        >
-          Prioritize structures, identify critical zones,
-          and map hidden deterioration.
-        </p>
-
-      </div>
-
-
-
-      <div
-        style="
-          border:1px solid rgba(255,255,255,0.20);
-          padding:35px;
-        "
-      >
-
-        <div
-          style="
-            color:#C9AB7D;
-            font-size:13px;
-            margin-bottom:15px;
-          "
-        >
-          02
-        </div>
-
-        <h3
-          style="
-            margin:0 0 12px 0;
-            color:white;
-            font-family:'Source Serif 4', Georgia, serif;
-            font-size:27px;
-          "
-        >
-          Restore
-        </h3>
-
-        <p
-          style="
-            margin:0;
-            color:rgba(255,255,255,0.68);
-            font-size:14px;
-          "
-        >
-          Deliver biological healing agents
-          into targeted internal crack networks.
-        </p>
-
-      </div>
-
-
-
-      <div
-        style="
-          border:1px solid rgba(255,255,255,0.20);
-          padding:35px;
-        "
-      >
-
-        <div
-          style="
-            color:#C9AB7D;
-            font-size:13px;
-            margin-bottom:15px;
-          "
-        >
-          03
-        </div>
-
-        <h3
-          style="
-            margin:0 0 12px 0;
-            color:white;
-            font-family:'Source Serif 4', Georgia, serif;
-            font-size:27px;
-          "
-        >
-          Verify
-        </h3>
-
-        <p
-          style="
-            margin:0;
-            color:rgba(255,255,255,0.68);
-            font-size:14px;
-          "
-        >
-          Reinspect the repaired region and update
-          the infrastructure condition model.
-        </p>
-
-      </div>
-
 
     </div>
 
@@ -1891,8 +1294,8 @@
 <section
   id="research"
   style="
-    border-top:1px solid #DAD4C8;
-    padding:110px 32px;
+    background:#18304A;
+    padding:105px 32px;
   "
 >
 
@@ -1900,19 +1303,20 @@
     style="
       max-width:1200px;
       margin:auto;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      gap:70px;
-      align-items:start;
     "
   >
 
 
-    <div>
+    <div
+      style="
+        max-width:780px;
+        margin-bottom:48px;
+      "
+    >
 
       <div
         style="
-          color:#AA7449;
+          color:#C9AB7D;
           text-transform:uppercase;
           letter-spacing:0.12em;
           font-size:12px;
@@ -1926,157 +1330,533 @@
 
       <h2
         style="
-          margin:0 0 22px 0;
-          font-family:'Source Serif 4', Georgia, serif;
+          color:white;
+          margin:0;
+          font-family:'Source Serif 4',Georgia,serif;
           font-size:clamp(36px,4vw,50px);
           font-weight:500;
           line-height:1.1;
         "
       >
-        Built from published
-        concrete repair research.
+        From published research
+        to infrastructure-scale application.
       </h2>
 
 
       <p
         style="
-          color:#5C6570;
+          margin-top:18px;
+          color:rgba(255,255,255,0.70);
           font-size:17px;
         "
       >
-
-        The biological restoration concept builds on
-        published research demonstrating that targeted
-        artificial vascular channels can improve the
-        delivery of hydrogel-supported biological
-        healing agents into damaged cementitious materials.
-
-      </p>
-
-
-      <p
-        style="
-          color:#5C6570;
-          font-size:17px;
-        "
-      >
-
-        CivilSeal extends this concept toward a complete
-        infrastructure system linking damage identification,
-        targeted repair, and post-repair verification.
-
+        CivilSeal builds on published experimental research
+        investigating drilling-assisted vascular access,
+        hydrogel-supported biological delivery, and
+        microbially induced calcium carbonate precipitation
+        in damaged cementitious materials.
       </p>
 
     </div>
 
 
 
-    <div>
+    <!-- RESEARCH DATA -->
 
+    <div
+      style="
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:18px;
+        margin-bottom:50px;
+      "
+    >
 
-      <!-- RESEARCH STAT 1 -->
 
       <div
         style="
-          background:white;
-          border:1px solid #DAD4C8;
-          padding:35px;
-          margin-bottom:22px;
+          border:1px solid rgba(255,255,255,0.20);
+          padding:28px;
+          background:rgba(255,255,255,0.03);
         "
       >
 
         <div
           style="
-            color:#18304A;
-            font-family:'Source Serif 4', Georgia, serif;
-            font-size:48px;
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:46px;
+            color:#C9AB7D;
             line-height:1;
-            margin-bottom:12px;
           "
         >
           ≈100%
         </div>
 
-
-        <h3
+        <div
           style="
-            margin:0 0 10px 0;
-            font-family:'Source Serif 4', Georgia, serif;
-            font-size:24px;
+            color:white;
+            font-weight:600;
+            margin-top:12px;
           "
         >
           Healing-agent distribution
-        </h3>
-
+        </div>
 
         <p
           style="
-            margin:0;
-            color:#5C6570;
-            font-size:14px;
+            color:rgba(255,255,255,0.63);
+            font-size:13px;
+            margin:8px 0 0;
           "
         >
-
-          Near-complete distribution through artificial
-          crack networks was observed in tested laboratory
-          conditions using drilling-assisted vascular access.
-
+          Nearly complete distribution throughout the
+          artificial crack network under tested conditions.
         </p>
 
       </div>
 
 
 
-      <!-- RESEARCH STAT 2 -->
-
       <div
         style="
-          background:white;
-          border:1px solid #DAD4C8;
-          padding:35px;
+          border:1px solid rgba(255,255,255,0.20);
+          padding:28px;
+          background:rgba(255,255,255,0.03);
         "
       >
 
         <div
           style="
-            color:#18304A;
-            font-family:'Source Serif 4', Georgia, serif;
-            font-size:48px;
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:46px;
+            color:#C9AB7D;
             line-height:1;
-            margin-bottom:12px;
           "
         >
-          ≈3.5×
+          3.5×
+        </div>
+
+        <div
+          style="
+            color:white;
+            font-weight:600;
+            margin-top:12px;
+          "
+        >
+          More CaCO₃
+        </div>
+
+        <p
+          style="
+            color:rgba(255,255,255,0.63);
+            font-size:13px;
+            margin:8px 0 0;
+          "
+        >
+          Approximately 70 mg with a drilled channel
+          versus 20 mg without a channel after 14 days.
+        </p>
+
+      </div>
+
+
+
+      <div
+        style="
+          border:1px solid rgba(255,255,255,0.20);
+          padding:28px;
+          background:rgba(255,255,255,0.03);
+        "
+      >
+
+        <div
+          style="
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:46px;
+            color:#C9AB7D;
+            line-height:1;
+          "
+        >
+          0.2–0.8
+        </div>
+
+        <div
+          style="
+            color:white;
+            font-weight:600;
+            margin-top:12px;
+          "
+        >
+          mm crack widths
+        </div>
+
+        <p
+          style="
+            color:rgba(255,255,255,0.63);
+            font-size:13px;
+            margin:8px 0 0;
+          "
+        >
+          Biological transport was experimentally
+          evaluated across controlled artificial cracks.
+        </p>
+
+      </div>
+
+
+
+      <div
+        style="
+          border:1px solid rgba(255,255,255,0.20);
+          padding:28px;
+          background:rgba(255,255,255,0.03);
+        "
+      >
+
+        <div
+          style="
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:46px;
+            color:#C9AB7D;
+            line-height:1;
+          "
+        >
+          MICCP
+        </div>
+
+        <div
+          style="
+            color:white;
+            font-weight:600;
+            margin-top:12px;
+          "
+        >
+          Biological mineralization
+        </div>
+
+        <p
+          style="
+            color:rgba(255,255,255,0.63);
+            font-size:13px;
+            margin:8px 0 0;
+          "
+        >
+          Hydrogel-delivered L. sphaericus promoted
+          calcium carbonate formation within cracks.
+        </p>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- PUBLICATIONS -->
+
+    <div
+      style="
+        color:#C9AB7D;
+        text-transform:uppercase;
+        letter-spacing:0.12em;
+        font-size:12px;
+        font-weight:600;
+        margin-bottom:18px;
+      "
+    >
+      Publications
+    </div>
+
+
+    <div
+      style="
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+        gap:20px;
+      "
+    >
+
+
+      <!-- PAPER 1 -->
+
+      <div
+        style="
+          background:#F7F5EF;
+          padding:30px;
+          border-radius:5px;
+        "
+      >
+
+        <div
+          style="
+            color:#AA7449;
+            font-size:12px;
+            font-weight:600;
+            margin-bottom:10px;
+          "
+        >
+          MATERIALS AND STRUCTURES • 2026
         </div>
 
 
         <h3
           style="
-            margin:0 0 10px 0;
-            font-family:'Source Serif 4', Georgia, serif;
-            font-size:24px;
+            margin:0 0 12px;
+            color:#192435;
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:23px;
+            font-weight:500;
+            line-height:1.25;
           "
         >
-          Greater mineral precipitation
+          Endodontics-inspired vasculature in
+          aged-damaged cementitious composites
+          for targeted delivery of healing agents
         </h3>
 
 
         <p
           style="
-            margin:0;
             color:#5C6570;
             font-size:14px;
+            margin-bottom:20px;
           "
         >
-
-          Drilling-assisted specimens produced substantially
-          greater calcium carbonate precipitation than
-          specimens without vascular access in the reported
-          laboratory study.
-
+          Experimental proof of concept for creating
+          targeted vascular access in aged concrete and
+          delivering hydrogel-supported biological healing
+          agents into subsurface cracks.
         </p>
 
+
+        <a
+          href="https://doi.org/10.1617/s11527-026-03135-z"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            display:inline-block;
+            text-decoration:none;
+            color:white;
+            background:#18304A;
+            padding:10px 17px;
+            border-radius:4px;
+            font-size:13px;
+            font-weight:500;
+          "
+        >
+          View Publication →
+        </a>
+
       </div>
+
+
+
+      <!-- PAPER 2 -->
+
+      <div
+        style="
+          background:#F7F5EF;
+          padding:30px;
+          border-radius:5px;
+        "
+      >
+
+        <div
+          style="
+            color:#AA7449;
+            font-size:12px;
+            font-weight:600;
+            margin-bottom:10px;
+          "
+        >
+          CONSTRUCTION AND BUILDING MATERIALS • 2024
+        </div>
+
+
+        <h3
+          style="
+            margin:0 0 12px;
+            color:#192435;
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:23px;
+            font-weight:500;
+            line-height:1.25;
+          "
+        >
+          Recent progress in vascularization
+          of cementitious composites:
+          Fundamental concepts, strategies
+          and applications
+        </h3>
+
+
+        <p
+          style="
+            color:#5C6570;
+            font-size:14px;
+            margin-bottom:20px;
+          "
+        >
+          Comprehensive review of vascular network
+          design, transport principles, fabrication methods,
+          self-healing applications, and future
+          infrastructure opportunities.
+        </p>
+
+
+        <a
+          href="https://doi.org/10.1016/j.conbuildmat.2024.138419"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="
+            display:inline-block;
+            text-decoration:none;
+            color:white;
+            background:#18304A;
+            padding:10px 17px;
+            border-radius:4px;
+            font-size:13px;
+            font-weight:500;
+          "
+        >
+          View Publication →
+        </a>
+
+      </div>
+
+    </div>
+
+
+
+    <p
+      style="
+        color:rgba(255,255,255,0.48);
+        font-size:12px;
+        margin:24px 0 0;
+        max-width:850px;
+      "
+    >
+      Current experimental results represent controlled
+      laboratory proof-of-concept testing. CivilSeal proposes
+      the next step: integrating damage localization,
+      robotic intervention, and biological repair at
+      infrastructure scale.
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
+<!-- CLOSED LOOP -->
+<!-- ===================================================== -->
+
+<section
+  style="
+    padding:95px 32px;
+    text-align:center;
+  "
+>
+
+  <div
+    style="
+      max-width:900px;
+      margin:auto;
+    "
+  >
+
+    <div
+      style="
+        color:#AA7449;
+        text-transform:uppercase;
+        letter-spacing:0.12em;
+        font-size:12px;
+        font-weight:600;
+        margin-bottom:12px;
+      "
+    >
+      CivilSeal
+    </div>
+
+
+    <h2
+      style="
+        margin:0;
+        font-family:'Source Serif 4',Georgia,serif;
+        font-size:clamp(36px,4vw,50px);
+        font-weight:500;
+      "
+    >
+      Find it. Repair it. Prove it.
+    </h2>
+
+
+    <p
+      style="
+        color:#5C6570;
+        font-size:17px;
+        margin:18px auto 0;
+        max-width:650px;
+      "
+    >
+      A closed-loop approach to detecting,
+      repairing, and validating deterioration
+      in aging concrete infrastructure.
+    </p>
+
+
+    <div
+      style="
+        margin-top:35px;
+        display:flex;
+        justify-content:center;
+        gap:10px;
+        flex-wrap:wrap;
+      "
+    >
+
+      <a
+        href="#assessment"
+        style="
+          background:#18304A;
+          color:white;
+          text-decoration:none;
+          padding:12px 20px;
+          border-radius:4px;
+          font-size:14px;
+        "
+      >
+        Detect
+      </a>
+
+      <a
+        href="#restoration"
+        style="
+          background:#18304A;
+          color:white;
+          text-decoration:none;
+          padding:12px 20px;
+          border-radius:4px;
+          font-size:14px;
+        "
+      >
+        Restore
+      </a>
+
+      <a
+        href="#validation"
+        style="
+          background:#18304A;
+          color:white;
+          text-decoration:none;
+          padding:12px 20px;
+          border-radius:4px;
+          font-size:14px;
+        "
+      >
+        Verify
+      </a>
 
     </div>
 
@@ -2087,15 +1867,15 @@
 
 
 <!-- ===================================================== -->
-<!-- CONTACT -->
+<!-- FOOTER -->
 <!-- ===================================================== -->
 
 <footer
   id="contact"
   style="
+    background:#EEEAE0;
     border-top:1px solid #DAD4C8;
-    padding:90px 32px 50px 32px;
-    background:#FBFAF6;
+    padding:70px 32px 40px;
   "
 >
 
@@ -2110,8 +1890,8 @@
     <div
       style="
         display:grid;
-        grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-        gap:60px;
+        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+        gap:50px;
       "
     >
 
@@ -2120,58 +1900,46 @@
 
         <div
           style="
-            color:#AA7449;
-            text-transform:uppercase;
-            letter-spacing:0.12em;
-            font-size:12px;
-            font-weight:600;
-            margin-bottom:12px;
+            display:flex;
+            align-items:center;
+            gap:12px;
+            margin-bottom:18px;
           "
         >
-          CivilSeal
+
+          <img
+            src="images/civilseal-logo.png"
+            alt="CivilSeal"
+            style="
+              width:62px;
+              height:62px;
+              object-fit:contain;
+            "
+          >
+
+          <span
+            style="
+              font-family:'Source Serif 4',Georgia,serif;
+              font-size:27px;
+              font-weight:600;
+            "
+          >
+            CivilSeal
+          </span>
+
         </div>
-
-
-        <h2
-          style="
-            margin:0 0 22px 0;
-            font-family:'Source Serif 4', Georgia, serif;
-            font-size:clamp(36px,4vw,48px);
-            font-weight:500;
-            line-height:1.1;
-          "
-        >
-          A new approach to maintaining
-          aging concrete infrastructure.
-        </h2>
 
 
         <p
           style="
             color:#5C6570;
-            font-size:16px;
+            max-width:500px;
+            font-size:15px;
           "
         >
           Intelligent assessment. Targeted biological
           intervention. Verified infrastructure recovery.
         </p>
-
-
-        <a
-          href="mailto:hello@civilseal.com"
-          style="
-            display:inline-block;
-            margin-top:20px;
-            background:#18304A;
-            color:white;
-            text-decoration:none;
-            padding:14px 25px;
-            border-radius:4px;
-            font-weight:500;
-          "
-        >
-          Contact Our Team
-        </a>
 
       </div>
 
@@ -2179,30 +1947,29 @@
 
       <div>
 
-        <img
-          src="images/civilseal-logo.png"
-          alt="CivilSeal Logo"
+        <h3
           style="
-            width:150px;
-            height:auto;
-            margin-bottom:24px;
+            margin:0 0 14px;
+            font-family:'Source Serif 4',Georgia,serif;
+            font-size:25px;
+            font-weight:500;
           "
         >
+          Rethinking concrete maintenance.
+        </h3>
 
 
         <p
           style="
             color:#5C6570;
-            font-size:15px;
-            max-width:450px;
+            font-size:14px;
+            max-width:470px;
           "
         >
-
-          CivilSeal is being developed as a closed-loop
-          infrastructure maintenance platform for
-          reinforced-concrete bridges and other
-          critical concrete structures.
-
+          CivilSeal is a concept for integrating
+          infrastructure intelligence, robotic inspection,
+          targeted vascular biological repair, and
+          post-intervention validation.
         </p>
 
       </div>
@@ -2213,15 +1980,15 @@
 
     <div
       style="
-        margin-top:70px;
-        padding-top:22px;
-        border-top:1px solid #DAD4C8;
+        margin-top:55px;
+        padding-top:20px;
+        border-top:1px solid #D1CABD;
         display:flex;
         justify-content:space-between;
         gap:20px;
         flex-wrap:wrap;
-        color:#5C6570;
-        font-size:13px;
+        color:#72777D;
+        font-size:12px;
       "
     >
 
@@ -2230,7 +1997,7 @@
       </span>
 
       <span>
-        Detect. Restore. Verify.
+        Detect • Restore • Verify
       </span>
 
     </div>
