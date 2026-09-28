@@ -3,105 +3,450 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bridge Operations & Validation Panel</title>
+<title>Bridge Operations & Robot Fleet Command</title>
 
 <style>
-  html, body { 
-    margin: 0; 
-    padding: 20px; 
-    height: 100%; 
-    font-family: system-ui, -apple-system, "Segoe UI", sans-serif; 
-    background: #f4f4f4;
+  :root {
+    --primary: #1b4332;
+    --primary-light: #2d6a4f;
+    --accent: #40916c;
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-main: #212529;
+    --text-muted: #6c757d;
+    --border: #dee2e6;
   }
 
-  .panel {
-    background: #ffffff; 
-    border-radius: 8px; 
-    padding: 16px 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
-    max-width: 360px; 
-    width: 100%;
-    box-sizing: border-box;
+  html, body {
+    margin: 0; padding: 0; background-color: var(--bg-color);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: var(--text-main);
   }
-  .panel h1 { font-size: 16px; margin: 0 0 4px; color: #1c1b17; }
-  .panel p { font-size: 12.5px; margin: 0 0 12px; color: #555; line-height: 1.4; }
 
-  /* Tab Navigation Styles */
-  .tab-nav { display: flex; gap: 6px; margin-bottom: 12px; border-bottom: 1px solid #ddd; padding-bottom: 8px; }
-  .tab-btn {
-    background: #f0f0f0; border: none; padding: 6px 12px; font-size: 11.5px; font-weight: 600;
-    cursor: pointer; border-radius: 4px; color: #444; transition: all 0.2s;
+  header {
+    background: var(--primary); color: white; padding: 16px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
-  .tab-btn.active { background: #2E7D32; color: #fff; }
-  .tab-content { display: none; max-height: 400px; overflow-y: auto; }
-  .tab-content.active { display: block; }
+  header h1 { margin: 0; font-size: 18px; font-weight: 600; letter-spacing: 0.3px; }
 
-  /* Work Order Card Styles */
-  .work-order-card {
-    background: #f9f9f9; border: 1px solid #e0e0e0; border-radius: 6px; padding: 10px; margin-bottom: 8px; font-size: 11.5px;
+  .container { max-width: 1200px; margin: 24px auto; padding: 0 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media(max-width: 900px) { .container { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px;
+    padding: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    display: flex; flex-direction: column;
   }
-  .work-order-card h4 { margin: 0 0 4px; font-size: 13px; color: #333; }
-  .badge { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 10px; font-weight: bold; color: #fff; }
-  .badge.pending { background: #F9A825; }
-  .badge.in-progress { background: #1976D2; }
+  .card h2 { margin-top: 0; font-size: 15px; color: var(--primary); border-bottom: 2px solid var(--bg-color); padding-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+
+  /* Scrollable Table / List Container */
+  .scroll-container {
+    max-height: 340px;
+    overflow-y: auto;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+
+  /* Filter Controls */
+  .filter-bar {
+    display: flex; gap: 10px; margin-bottom: 10px;
+  }
+  .filter-bar input, .filter-bar select {
+    padding: 6px 10px; font-size: 12.5px; border: 1px solid var(--border); border-radius: 4px; outline: none;
+  }
+  .filter-bar input { flex: 1; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--border); }
+  th { 
+    color: var(--text-muted); font-weight: 600; font-size: 12px; text-transform: uppercase; 
+    background: #f8f9fa; position: sticky; top: 0; z-index: 1; box-shadow: inset 0 -1px 0 var(--border);
+  }
+  tr:last-child td { border-bottom: none; }
+
+  /* Badges */
+  .badge { display: inline-block; padding: 3px 8px; border-radius: 4px; font-size: 11px; font-weight: bold; color: #fff; }
+  .badge.active { background: #1976D2; }
+  .badge.en-route { background: #E65100; }
+  .badge.idle { background: #757575; }
   .badge.completed { background: #2E7D32; }
+  .badge.verified { background: #00796B; }
+
+  /* Buttons */
+  .btn {
+    background: var(--primary-light); color: white; border: none; padding: 6px 12px;
+    font-size: 12px; font-weight: 600; border-radius: 4px; cursor: pointer; transition: background 0.2s;
+  }
+  .btn:hover { background: var(--primary); }
+
+  /* Work Order Modal / Banner Area */
+  .ticket-banner {
+    background: #e8f5e9; border: 1px solid #c8e6c9; border-radius: 6px; padding: 14px 18px;
+    margin-bottom: 20px; display: none; font-size: 13px; color: #1b5e20;
+  }
+  .ticket-banner h3 { margin: 0 0 4px; font-size: 14px; color: #2e7d32; }
+  .ticket-actions { margin-top: 10px; display: flex; align-items: center; }
+
+  /* Full-width bottom section */
+  .full-width { grid-column: 1 / -1; }
+  
+  /* Audit List Styles with Right Alignment */
+  .audit-list { padding: 4px; }
+  .audit-item {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #f8f9fa; padding: 10px 12px; border-radius: 4px; margin-bottom: 6px; border: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .audit-item:last-child { margin-bottom: 0; }
+  .audit-left { flex: 1; }
+  .audit-right { text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 4px; }
 </style>
 </head>
 <body>
 
-<div class="panel">
-  <h1>Bridge Micro-Crack Risk Explorer</h1>
+<header>
+  <h1>Bridge Operations & Robot Fleet Command</h1>
+</header>
 
-  <!-- Tab Navigation -->
-  <div class="tab-nav">
-    <button class="tab-btn active" onclick="switchTab(event, 'map-tab')">Risk Explorer Info</button>
-    <button class="tab-btn" onclick="switchTab(event, 'ops-tab')">Robot Dispatch & Validation</button>
+<div class="container">
+
+  <!-- Work Order Notification Banner -->
+  <div class="full-width">
+    <div id="ticketBanner" class="ticket-banner">
+      <h3 id="ticketTitle">Work Order #4092 Submitted</h3>
+      <p id="ticketDesc">Estimated Deployment Window: 3 Business Days. Routing automated work specifications to engineering.</p>
+      <div class="ticket-actions">
+        <button class="btn" onclick="downloadTicketPdf()">Download Official PDF Ticket</button>
+      </div>
+    </div>
   </div>
 
-  <!-- Tab 1 Content -->
-  <div id="map-tab" class="tab-content active">
-    <p>Top 5,000 highest-scoring concrete / prestressed-concrete bridges nationwide (of 434,812 scored), from the National Bridge Inventory-based weighted risk model.</p>
+  <!-- Robot Fleet Status Panel -->
+  <div class="card">
+    <h2>Robot Fleet Live Status <span>15 Units Tracked</span></h2>
+    <div class="scroll-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Robot ID</th>
+            <th>Model</th>
+            <th>Assigned Bridge</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>BOT-101</strong></td><td>CrackScan-X1</td><td>150A9090001 (TN)</td><td><span class="badge active">Active Injection</span></td></tr>
+          <tr><td><strong>BOT-102</strong></td><td>HydroRepair-V2</td><td>006791 (PR)</td><td><span class="badge en-route">En Route</span></td></tr>
+          <tr><td><strong>BOT-103</strong></td><td>CrackScan-X1</td><td>Base Station (CO)</td><td><span class="badge idle">Idle / Standby</span></td></tr>
+          <tr><td><strong>BOT-104</strong></td><td>HydroRepair-V2</td><td>016300000000000 (OK)</td><td><span class="badge active">Active Injection</span></td></tr>
+          <tr><td><strong>BOT-105</strong></td><td>CrackScan-X1</td><td>86I00260034 (TN)</td><td><span class="badge en-route">En Route</span></td></tr>
+          <tr><td><strong>BOT-106</strong></td><td>CrackScan-X1</td><td>Base Station (TX)</td><td><span class="badge idle">Idle / Standby</span></td></tr>
+          <tr><td><strong>BOT-107</strong></td><td>HydroRepair-V2</td><td>00412000000 (FL)</td><td><span class="badge active">Active Injection</span></td></tr>
+          <tr><td><strong>BOT-108</strong></td><td>CrackScan-X1</td><td>90025690003 (TN)</td><td><span class="badge en-route">En Route</span></td></tr>
+          <tr><td><strong>BOT-109</strong></td><td>HydroRepair-V2</td><td>Base Station (OH)</td><td><span class="badge idle">Idle / Standby</span></td></tr>
+          <tr><td><strong>BOT-110</strong></td><td>CrackScan-X1</td><td>02360450901 (LA)</td><td><span class="badge active">Active Injection</span></td></tr>
+          <tr><td><strong>BOT-111</strong></td><td>HydroRepair-V2</td><td>CHA191-01.57 (CO)</td><td><span class="badge en-route">En Route</span></td></tr>
+          <tr><td><strong>BOT-112</strong></td><td>CrackScan-X1</td><td>Base Station (WA)</td><td><span class="badge idle">Idle / Standby</span></td></tr>
+          <tr><td><strong>BOT-113</strong></td><td>HydroRepair-V2</td><td>300A8940001 (TN)</td><td><span class="badge active">Active Injection</span></td></tr>
+          <tr><td><strong>BOT-114</strong></td><td>CrackScan-X1</td><td>005051 (PR)</td><td><span class="badge en-route">En Route</span></td></tr>
+          <tr><td><strong>BOT-115</strong></td><td>HydroRepair-V2</td><td>Base Station (NY)</td><td><span class="badge idle">Idle / Standby</span></td></tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 
-  <!-- Tab 2 Content -->
-  <div id="ops-tab" class="tab-content">
-    <p>Active autonomous robot deployment work orders, hydrogel sealant application progress, and post-repair AI verification scores.</p>
+  <!-- Work Order Generator Panel -->
+  <div class="card">
+    <h2>Bridge Repair Queue & Work Order Generator</h2>
     
-    <div class="work-order-card">
-      <h4>Structure: 150A9090001 (TN)</h4>
-      <div>Status: <span class="badge completed">Completed & Verified</span></div>
-      <div>AI Score Change: <span style="color:#C62828; font-weight:bold;">0.642 (Grade F)</span> &rarr; <span style="color:#2E7D32; font-weight:bold;">0.120 (Grade B)</span></div>
-      <div style="color: #666; margin-top: 2px;">Hydrogel injection complete; 30-day curing verified.</div>
+    <!-- Filter and Search Bar -->
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Search Bridge ID..." onkeyup="filterQueue()">
+      <select id="stateFilter" onchange="filterQueue()">
+        <option value="">All States</option>
+        <option value="CO">CO</option>
+        <option value="TN">TN</option>
+        <option value="PR">PR</option>
+        <option value="OK">OK</option>
+        <option value="FL">FL</option>
+        <option value="TX">TX</option>
+        <option value="NY">NY</option>
+        <option value="WA">WA</option>
+        <option value="OH">OH</option>
+      </select>
     </div>
 
-    <div class="work-order-card">
-      <h4>Structure: 006791 (PR)</h4>
-      <div>Status: <span class="badge in-progress">Robot En Route / Active Scan</span></div>
-      <div>Current Action: Microcrack mapping & hydrogel application</div>
-      <div style="color: #666; margin-top: 2px;">Estimated completion in 4 hours.</div>
-    </div>
-
-    <div class="work-order-card">
-      <h4>Structure: CHA191-01.57 (CO)</h4>
-      <div>Status: <span class="badge pending">Work Order Queued</span></div>
-      <div>Priority: High (AI Risk Score: 0.575)</div>
-      <div style="color: #666; margin-top: 2px;">Awaiting municipal dispatch approval confirmation.</div>
+    <div class="scroll-container">
+      <table id="queueTable">
+        <thead>
+          <tr>
+            <th>Bridge ID</th>
+            <th>State</th>
+            <th>Risk Score</th>
+            <th>Est. Cost</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr data-bridge="CHA191-01.57" data-state="CO">
+            <td><strong>CHA191-01.57</strong></td><td>CO</td>
+            <td><span style="color:#d90429; font-weight:bold;">0.575 (High)</span></td>
+            <td>$42,500</td>
+            <td><button class="btn" onclick="generateWorkOrder('CHA191-01.57', 'CO', '0.575', '$42,500', 3)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="300A8940001" data-state="TN">
+            <td><strong>300A8940001</strong></td><td>TN</td>
+            <td><span style="color:#d90429; font-weight:bold;">0.621 (Critical)</span></td>
+            <td>$58,000</td>
+            <td><button class="btn" onclick="generateWorkOrder('300A8940001', 'TN', '0.621', '$58,000', 5)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="005051" data-state="PR">
+            <td><strong>005051</strong></td><td>PR</td>
+            <td><span style="color:#fb8500; font-weight:bold;">0.579 (Elevated)</span></td>
+            <td>$39,000</td>
+            <td><button class="btn" onclick="generateWorkOrder('005051', 'PR', '0.579', '$39,000', 3)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="90025690003" data-state="TN">
+            <td><strong>90025690003</strong></td><td>TN</td>
+            <td><span style="color:#d90429; font-weight:bold;">0.620 (Critical)</span></td>
+            <td>$61,200</td>
+            <td><button class="btn" onclick="generateWorkOrder('90025690003', 'TN', '0.620', '$61,200', 6)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="006791" data-state="PR">
+            <td><strong>006791</strong></td><td>PR</td>
+            <td><span style="color:#fb8500; font-weight:bold;">0.588 (Elevated)</span></td>
+            <td>$34,500</td>
+            <td><button class="btn" onclick="generateWorkOrder('006791', 'PR', '0.588', '$34,500', 3)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="016300000000000" data-state="OK">
+            <td><strong>016300000000000</strong></td><td>OK</td>
+            <td><span style="color:#fb8500; font-weight:bold;">0.587 (Elevated)</span></td>
+            <td>$48,000</td>
+            <td><button class="btn" onclick="generateWorkOrder('016300000000000', 'OK', '0.587', '$48,000', 4)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="FL-88902-A" data-state="FL">
+            <td><strong>FL-88902-A</strong></td><td>FL</td>
+            <td><span style="color:#d90429; font-weight:bold;">0.640 (Critical)</span></td>
+            <td>$72,000</td>
+            <td><button class="btn" onclick="generateWorkOrder('FL-88902-A', 'FL', '0.640', '$72,000', 5)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="TX-1049-C" data-state="TX">
+            <td><strong>TX-1049-C</strong></td><td>TX</td>
+            <td><span style="color:#fb8500; font-weight:bold;">0.562 (Elevated)</span></td>
+            <td>$38,500</td>
+            <td><button class="btn" onclick="generateWorkOrder('TX-1049-C', 'TX', '0.562', '$38,500', 3)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="NY-55021-X" data-state="NY">
+            <td><strong>NY-55021-X</strong></td><td>NY</td>
+            <td><span style="color:#d90429; font-weight:bold;">0.612 (Critical)</span></td>
+            <td>$89,000</td>
+            <td><button class="btn" onclick="generateWorkOrder('NY-55021-X', 'NY', '0.612', '$89,000', 6)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="WA-00392-B" data-state="WA">
+            <td><strong>WA-00392-B</strong></td><td>WA</td>
+            <td><span style="color:#fb8500; font-weight:bold;">0.551 (Elevated)</span></td>
+            <td>$41,000</td>
+            <td><button class="btn" onclick="generateWorkOrder('WA-00392-B', 'WA', '0.551', '$41,000', 3)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="OH-77102-Z" data-state="OH">
+            <td><strong>OH-77102-Z</strong></td><td>OH</td>
+            <td><span style="color:#d90429; font-weight:bold;">0.598 (High)</span></td>
+            <td>$53,500</td>
+            <td><button class="btn" onclick="generateWorkOrder('OH-77102-Z', 'OH', '0.598', '$53,500', 4)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="CO-99210-K" data-state="CO">
+            <td><strong>CO-99210-K</strong></td><td>CO</td>
+            <td><span style="color:#fb8500; font-weight:bold;">0.543 (Elevated)</span></td>
+            <td>$31,000</td>
+            <td><button class="btn" onclick="generateWorkOrder('CO-99210-K', 'CO', '0.543', '$31,000', 3)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="TN-44021-M" data-state="TN">
+            <td><strong>TN-44021-M</strong></td><td>TN</td>
+            <td><span style="color:#d90429; font-weight:bold;">0.635 (Critical)</span></td>
+            <td>$67,000</td>
+            <td><button class="btn" onclick="generateWorkOrder('TN-44021-M', 'TN', '0.635', '$67,000', 5)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="FL-11029-S" data-state="FL">
+            <td><strong>FL-11029-S</strong></td><td>FL</td>
+            <td><span style="color:#fb8500; font-weight:bold;">0.570 (Elevated)</span></td>
+            <td>$44,000</td>
+            <td><button class="btn" onclick="generateWorkOrder('FL-11029-S', 'FL', '0.570', '$44,000', 3)">Dispatch Fix</button></td>
+          </tr>
+          <tr data-bridge="TX-88392-W" data-state="TX">
+            <td><strong>TX-88392-W</strong></td><td>TX</td>
+            <td><span style="color:#d90429; font-weight:bold;">0.605 (High)</span></td>
+            <td>$55,000</td>
+            <td><button class="btn" onclick="generateWorkOrder('TX-88392-W', 'TX', '0.605', '$55,000', 4)">Dispatch Fix</button></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+
+  <!-- Verification Audit Panel -->
+  <div class="card full-width">
+    <h2>AI Verification Audit & Re-Scan Schedule <span>10 Structures Tracked</span></h2>
+    <p style="font-size: 13px; color: var(--text-muted); margin-top: 0;">Automated tracking for post-repair structural validation scans using new drone and camera data feeds.</p>
+    
+    <div class="scroll-container audit-list">
+      
+      <div class="audit-item">
+        <div class="audit-left">
+          <strong>Structure: 150A9090001 (TN)</strong><br>
+          <span style="font-size: 11.5px; color: var(--text-muted);">Hydrogel repair executed by BOT-101</span>
+        </div>
+        <div class="audit-right">
+          <span class="badge verified">Validation Complete</span>
+          <span style="font-size: 12px; font-weight: 500;">AI Post-Repair Audit Verified on <strong>August 14, 2026</strong></span>
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-left">
+          <strong>Structure: 023604509019121 (LA)</strong><br>
+          <span style="font-size: 11.5px; color: var(--text-muted);">Surface sealant injected by BOT-103</span>
+        </div>
+        <div class="audit-right">
+          <span class="badge verified">Validation Complete</span>
+          <span style="font-size: 12px; font-weight: 500;">AI Post-Repair Audit Verified on <strong>August 22, 2026</strong></span>
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-left">
+          <strong>Structure: 00412000000 (FL)</strong><br>
+          <span style="font-size: 11.5px; color: var(--text-muted);">Epoxy injection executed by BOT-107</span>
+        </div>
+        <div class="audit-right">
+          <span class="badge verified">Validation Complete</span>
+          <span style="font-size: 12px; font-weight: 500;">AI Post-Repair Audit Verified on <strong>September 05, 2026</strong></span>
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-left">
+          <strong>Structure: 86I00260034 (TN)</strong><br>
+          <span style="font-size: 11.5px; color: var(--text-muted);">Microcrack resin application by BOT-105</span>
+        </div>
+        <div class="audit-right">
+          <span class="badge completed">Repair Complete</span>
+          <span style="font-size: 12px; font-weight: 500;">AI Post-Repair Validation Scan scheduled for <strong>October 12, 2026</strong></span>
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-left">
+          <strong>Structure: 016300000000000 (OK)</strong><br>
+          <span style="font-size: 11.5px; color: var(--text-muted);">Hydrogel sealing executed by BOT-104</span>
+        </div>
+        <div class="audit-right">
+          <span class="badge completed">Repair Complete</span>
+          <span style="font-size: 12px; font-weight: 500;">AI Post-Repair Validation Scan scheduled for <strong>October 27, 2026</strong></span>
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-left">
+          <strong>Structure: 90025690003 (TN)</strong><br>
+          <span style="font-size: 11.5px; color: var(--text-muted);">Resin patch applied by BOT-108</span>
+        </div>
+        <div class="audit-right">
+          <span class="badge completed">Repair Complete</span>
+          <span style="font-size: 12px; font-weight: 500;">AI Post-Repair Validation Scan scheduled for <strong>November 04, 2026</strong></span>
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-left">
+          <strong>Structure: TX-1049-C (TX)</strong><br>
+          <span style="font-size: 11.5px; color: var(--text-muted);">Sealant injection by field crew</span>
+        </div>
+        <div class="audit-right">
+          <span class="badge verified">Validation Complete</span>
+          <span style="font-size: 12px; font-weight: 500;">AI Post-Repair Audit Verified on <strong>July 19, 2026</strong></span>
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-left">
+          <strong>Structure: WA-00392-B (WA)</strong><br>
+          <span style="font-size: 11.5px; color: var(--text-muted);">Structural stabilization patch</span>
+        </div>
+        <div class="audit-right">
+          <span class="badge completed">Repair Complete</span>
+          <span style="font-size: 12px; font-weight: 500;">AI Post-Repair Validation Scan scheduled for <strong>November 18, 2026</strong></span>
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-left">
+          <strong>Structure: NY-55021-X (NY)</strong><br>
+          <span style="font-size: 11.5px; color: var(--text-muted);">High-stress polymer injection</span>
+        </div>
+        <div class="audit-right">
+          <span class="badge completed">Repair Complete</span>
+          <span style="font-size: 12px; font-weight: 500;">AI Post-Repair Validation Scan scheduled for <strong>December 01, 2026</strong></span>
+        </div>
+      </div>
+
+      <div class="audit-item">
+        <div class="audit-left">
+          <strong>Structure: CO-99210-K (CO)</strong><br>
+          <span style="font-size: 11.5px; color: var(--text-muted);">Surface sealant application</span>
+        </div>
+        <div class="audit-right">
+          <span class="badge verified">Validation Complete</span>
+          <span style="font-size: 12px; font-weight: 500;">AI Post-Repair Audit Verified on <strong>June 30, 2026</strong></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
 <script>
-// Tab Switching Logic Function
-function switchTab(evt, tabId) {
-  const contents = document.querySelectorAll('.tab-content');
-  contents.forEach(c => c.classList.remove('active'));
+  let activeTicketNum = 4092;
 
-  const buttons = document.querySelectorAll('.tab-btn');
-  buttons.forEach(b => b.classList.remove('active'));
+  function generateWorkOrder(bridgeId, state, score, cost, days) {
+    activeTicketNum = Math.floor(1000 + Math.random() * 9000);
+    const banner = document.getElementById('ticketBanner');
+    const title = document.getElementById('ticketTitle');
+    const desc = document.getElementById('ticketDesc');
 
-  document.getElementById(tabId).classList.add('active');
-  evt.currentTarget.classList.add('active');
-}
+    title.innerText = `Work Order #${activeTicketNum} Submitted for Bridge ${bridgeId} (${state})`;
+    desc.innerText = `Risk Score: ${score} | Budget Impact: ${cost}. Estimated Deployment Window: ${days} Business Days. Maintenance log registered for procurement validation.`;
+    
+    banner.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function downloadTicketPdf() {
+    alert(`Downloading Official Procurement Ticket PDF for Work Order #${activeTicketNum}...\n`);
+  }
+
+  function filterQueue() {
+    const input = document.getElementById('searchInput').value.toLowerCase();
+    const stateVal = document.getElementById('stateFilter').value;
+    const rows = document.querySelectorAll('#queueTable tbody tr');
+
+    rows.forEach(row => {
+      const bridgeId = row.getAttribute('data-bridge').toLowerCase();
+      const state = row.getAttribute('data-state');
+
+      const matchesSearch = bridgeId.includes(input);
+      const matchesState = stateVal === "" || state === stateVal;
+
+      if (matchesSearch && matchesState) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
 </script>
 
 </body>
