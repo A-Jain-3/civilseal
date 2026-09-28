@@ -76,9 +76,9 @@ const BRIDGE_DATA = [{"lat":36.1222,"lon":-83.12528,"score":0.642,"state":"TN","
 function riskColor(score) {
   // 0 -> green, 0.5 -> yellow, 1 -> red
   const stops = [
-    [0.00, [46, 125, 50]],
-    [0.50, [249, 168, 37]],
-    [1.00, [198, 40, 40]],
+    [0.45, [46, 125, 50]],
+    [0.54, [249, 168, 37]],
+    [0.64, [198, 40, 40]],
   ];
   let a = stops[0], b = stops[stops.length - 1];
   for (let i = 0; i < stops.length - 1; i++) {
